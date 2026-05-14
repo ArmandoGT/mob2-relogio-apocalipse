@@ -53,7 +53,7 @@ class AuthService {
     }
 
     throw const FirebaseSetupException(
-      'Firebase ainda não está configurado neste projeto. Adicione a configuração oficial para ativar login e persistência.',
+      'O serviço de autenticação não está disponível no ambiente atual.'
     );
   }
 }
