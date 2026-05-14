@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "466401664877",
+    "project_id": "mob2-relogio-do-apocalipse",
+    "storage_bucket": "mob2-relogio-do-apocalipse.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466401664877:android:4ad414701c57da3f5c4464",
+        "android_client_info": {
+          "package_name": "com.example.relogio_apocalipse"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD09QA0x33xOf5MgpG8rFd9G6aI_HUMGo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
