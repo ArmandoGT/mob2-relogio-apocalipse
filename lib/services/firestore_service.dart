@@ -127,7 +127,7 @@ class FirestoreService {
     }
 
     throw const FirebaseSetupException(
-      'Cloud Firestore ainda não está configurado neste projeto.',
+      'O serviço de persistência não está disponível no ambiente atual.'
     );
   }
 }
