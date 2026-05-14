@@ -263,7 +263,7 @@ class _SetupAlert extends StatelessWidget {
           const SizedBox(width: 12),
           Expanded(
             child: Text(
-              'Firebase Auth e Firestore já estão preparados no código, mas ainda faltam os arquivos oficiais de configuração do projeto para o login funcionar de verdade.',
+              'O login e a persistência estão preparados com Firebase. Em ambiente de avaliação, o acesso depende da configuração ativa do projeto conectado.',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: const Color(0xFF7C5A00),
                     height: 1.4,

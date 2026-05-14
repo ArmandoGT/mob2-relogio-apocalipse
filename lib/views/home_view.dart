@@ -201,7 +201,7 @@ class _PendingFirebaseBanner extends StatelessWidget {
           const SizedBox(width: 12),
           Expanded(
             child: Text(
-              'O painel já funciona com dados externos, mas o Firebase ainda precisa da configuração oficial para ativar login real, favoritos e histórico por UID.',
+              'O painel consome eventos internacionais em tempo real. Favoritos e histórico usam Firebase quando o projeto conectado está disponível.',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: const Color(0xFF7C5A00),
                     height: 1.4,
