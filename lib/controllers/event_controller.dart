@@ -67,10 +67,23 @@ class EventController extends ChangeNotifier {
     try {
       final events = await _apiService.fetchRecentEvents();
       _allEvents = events;
-      await _restorePreferencesIfPossible();
+
+      // Firestore pode estar indisponível (sem internet, emulador offline, etc).
+      // Não deixamos que falhas de persistência impeçam a exibição dos eventos.
+      try {
+        await _restorePreferencesIfPossible();
+      } catch (_) {
+        debugPrint('[EventController] Falha ao restaurar preferências do Firestore (ignorada).');
+      }
+
       _applyFilters(persist: false);
       _lastUpdated = DateTime.now();
-      await _persistQueryHistory();
+
+      try {
+        await _persistQueryHistory();
+      } catch (_) {
+        debugPrint('[EventController] Falha ao persistir histórico no Firestore (ignorada).');
+      }
     } catch (error) {
       _errorMessage = error.toString();
       _allEvents = const [];
@@ -132,8 +145,12 @@ class EventController extends ChangeNotifier {
     _scoreController.updateWithEvents(_filteredEvents);
 
     if (persist) {
-      await _persistPreferences();
-      await _persistQueryHistory();
+      try {
+        await _persistPreferences();
+        await _persistQueryHistory();
+      } catch (_) {
+        debugPrint('[EventController] Falha ao persistir filtros no Firestore (ignorada).');
+      }
     }
 
     notifyListeners();

@@ -39,14 +39,18 @@ class FirestoreService {
       return false;
     }
 
-    final doc = await _firestore
-        .collection('users')
-        .doc(uid)
-        .collection('favorites')
-        .doc(eventId)
-        .get();
+    try {
+      final doc = await _firestore
+          .collection('users')
+          .doc(uid)
+          .collection('favorites')
+          .doc(eventId)
+          .get();
 
-    return doc.exists;
+      return doc.exists;
+    } catch (_) {
+      return false;
+    }
   }
 
   Future<void> toggleFavorite({
